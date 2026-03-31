@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quicktap.1</title>
+    <link rel="icon" href="1.1.jpg">
+    <style>
+
+/* الحاوية */
+.floating-menu {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+/* الزرار الرئيسي (مصغر) */
+.main-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff004c, #ffec00);
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.main-btn.active {
+    transform: rotate(45deg);
+}
+
+/* الأزرار الصغيرة */
+.float-item {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    opacity: 0;
+    transform: scale(0);
+    transition: 0.4s;
+}
+
+.float-item img {
+    width: 22px;
+}
+
+/* لما تفتح */
+.floating-menu.active .float-item {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ترتيب الأزرار */
+.floating-menu.active .whatsapp {
+    bottom: 70px;
+}
+
+
+.floating-menu.active .insta {
+    bottom: 130px;
+}
+
+.floating-menu.active .facebook {
+    bottom: 190px;
+}
+
+/* Hover */
+.float-item:hover {
+    transform: scale(1.15);
+}
+
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(44, 62, 80);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* الكارت */
+        .social-container {
+            background: rgba(236, 240, 241, 0.6);
+            padding: 30px;
+            border-radius: 45px;
+            max-width: 380px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* الإطار المتحرك */
+        .social-container::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 45px;
+            background: linear-gradient(270deg, #ff004c, #ffec00, #00ffee, #ff004c);
+            background-size: 400% 400%;
+            animation: glowing 6s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes glowing {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* العنوان */
+        h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: rgb(44, 62, 80);
+        }
+
+        /* صورة البروفايل */
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: block;
+            margin: 10px auto;
+            object-fit: cover;
+            border: 4px solid white;
+        }
+
+        /* الاسم */
+        .name {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        /* روابط السوشيال */
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            color: inherit;
+            transition: .3s;
+        }
+
+        .social-link img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .social-link span {
+            font-weight: bold;
+        }
+
+        .social-link:hover {
+            transform: scale(1.05);
+        }
+
+        /* التابلت */
+        @media (max-width:768px) {
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .social-link {
+                padding: 14px;
+            }
+        }
+
+        /* الموبايل */
+        @media (max-width:480px) {
+            .social-container {
+                padding: 25px;
+                border-radius: 35px;
+            }
+
+            .profile-img {
+                width: 90px;
+                height: 90px;
+            }
+
+            .social-link {
+                padding: 12px;
+            }
+
+            .social-link span {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="social-container">
+
+        <h2>Quicktap</h2>
+        
+
+         <img src="proflio.jpeg" class="profile-img">
+
+        <div class="name">ṂỖĤÃṂẸĎ ĤÃŇЎ</div> 
+       
+
+        <a class="social-link" href="https://www.facebook.com/share/18Fb5753VK/"target="_blank" rel="noopener noreferrer"> 
+            <img src="1.png">
+
+             <span>Facebook</span> 
+            </a>
+
+              <a
+            class="social-link" href="https://www.instagram.com/2mohmedhany2?utm_source=qr&igsh=MTB1b2VhanJmMGw3cg==" target="_blank"
+            rel="noopener noreferrer"> 
+            <img src="2.png"> <span>Instagram</span>
+         </a> 
+
+
+ <a class="social-link" href="https://wa.me/201109221416" target="_blank"
+            rel="noopener noreferrer">
+             <img src="4.png">
+             <span>WhatsApp</span> 
+        </a>
+
+         <a class="social-link"
+            href="https://www.snapchat.com/add/mhmdhny237651?share_id=AKBlcWc24SA&locale=ar-EG" target="_blank" rel="noopener noreferrer"> <img src="3.png">
+            <span>Snapchat</span>
+         </a>
+            
+             <a class="social-link"
+            href="tel:+201109221416"> <img src="5.png">
+             <span>Phone</span> 
+        </a> 
+
+ <a
+            class="social-link" href="https://www.tiktok.com/@userewlaiym3ju?_r=1&_t=ZS-9597AMsYLLO" target="_blank" rel="noopener noreferrer">
+            <img src="7.png"> 
+            <span>TikTok</span> 
+        </a>
+
+    </div>
+
+    <!-- Floating Menu -->
+<div class="floating-menu">
+
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/profile.php?id=61574338492476" target="_blank" class="float-item facebook">
+        <img src="1.png">
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/201145964511" target="_blank" class="float-item whatsapp">
+        <img src="4.png">
+    </a>
+
+
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/quicktap.1/" target="_blank" class="float-item insta">
+        <img src="2.png">
+    </a>
+
+    <!-- Main Button -->
+    <button class="main-btn" onclick="toggleMenu()">+</button>
+
+</div>
+
+<script>
+function toggleMenu() {
+    const menu = document.querySelector('.floating-menu');
+    const btn = document.querySelector('.main-btn');
+
+    menu.classList.toggle('active');
+    btn.classList.toggle('active');
+}
+</script>
+
+</body>
+
+</html>
